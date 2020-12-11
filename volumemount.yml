@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: secret2
+spec:
+  volumes:
+    - names: cred
+      secret:
+        secretName: db-creds
+  containers:
+   - name: container1
+     image: nginx
+     volumeMounts:
+       - name: cred
+         mountPath: "/dbcred"  
+
