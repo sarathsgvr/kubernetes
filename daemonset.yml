@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: lab-ds
+  labels:
+    app: demoapp
+spec:
+  selector:
+    matchLabels:
+      app_type: agent
+  template:
+    metadata:
+      labels:
+        app_type: agent
+    spec:
+      containers:
+        - name: fe
+          image: httpd
