@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lab-deploy
+  labels:
+    app: demoapp
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app_type: frontende
+  template:
+    metadata:
+      labels:
+        app_type: frontende
+    spec:
+      containers:
+        - name: fe
+          image: thechetantalwar/syneapp:v1
